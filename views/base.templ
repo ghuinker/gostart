@@ -1,0 +1,42 @@
+package views
+
+import (
+	"gostart/core"
+)
+
+templ Base() {
+	<html lang="en">
+		<head>
+			<meta charset="utf-8"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+			<meta name="apple-mobile-web-app-capable" content="yes"/>
+			<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+			<link href={ core.AssetManifest("assets/css/style.css") } type="text/css" rel="stylesheet"/>
+		</head>
+		<body>
+			{ children... }
+		</body>
+	</html>
+}
+
+templ unAuth() {
+	@Base() {
+		<div>
+			{ children... }
+		</div>
+	}
+}
+
+templ header() {
+	<header class="inset-x-0 top-0 z-50 flex h-16 border-b border-gray-900/10">GOSTART</header>
+}
+
+templ App() {
+	@Base() {
+		@header()
+		<main>
+			<div id="app"></div>
+		</main>
+		<script type="module" src={ core.AssetManifest("assets/js/app.js") }></script>
+	}
+}

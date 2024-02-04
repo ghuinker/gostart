@@ -1,0 +1,13 @@
+.env
+gostart
+linuxgostart
+
+node_modules
+static/assets/*
+**/*_templ.go
+
+.DS_Store
+.idea
+.vscode
+
+tmp/*
